@@ -85,8 +85,9 @@ public class ContactBook {
             FileWriter writer = new FileWriter(pathToSave);
             writer.write(showContacts());
             writer.close();
+            System.out.println("Контакты записаны в файл!");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Ошибка записи в файл!");
         }
     }
 

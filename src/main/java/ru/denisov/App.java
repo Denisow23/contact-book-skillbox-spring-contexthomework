@@ -42,7 +42,6 @@ public class App {
                 }
                 case (4) : {
                     book.saveContactsInFile();
-                    System.out.println("Контакты записаны в файл!");
                     break;
                 }
                 default:
