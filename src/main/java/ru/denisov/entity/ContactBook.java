@@ -24,6 +24,9 @@ public class ContactBook {
 
     public String showContacts() {
         StringBuilder builder = new StringBuilder();
+        if (contacts.size() == 0){
+            return "Список контактов пуст!";
+        }
         for(Contact contact : contacts.values()) {
             builder.append(MessageFormat.format("{0} | {1} | {2} ",
                     contact.getFullName(), contact.getPhoneNumber(), contact.getEmail()));
