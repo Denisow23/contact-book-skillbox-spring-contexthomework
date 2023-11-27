@@ -4,6 +4,6 @@ import org.springframework.context.annotation.*;
 
 
 @ComponentScan("ru.denisov")
-@PropertySource("classpath:application.properties")
+@PropertySource(value = "classpath:application.yml", factory = YmlPropertySourceFactory.class)
 public class AppConfig {
 }

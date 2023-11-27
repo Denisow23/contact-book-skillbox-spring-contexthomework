@@ -1,0 +1,6 @@
+app:
+  pathToSave : "src/main/resources/savedContacts.txt"
+  pathToInit : "src/main/resources/initContacts.txt"
+spring:
+  profiles:
+    active : init

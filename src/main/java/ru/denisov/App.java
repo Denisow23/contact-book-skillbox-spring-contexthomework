@@ -12,12 +12,13 @@ public class App {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         ContactBook book = context.getBean(ContactBook.class);
+        Scanner scanner = new Scanner(System.in);
 
         while(true) {
             System.out.println("1 - add, 2- delete, 3 - view, 4 - save to file");
             int a;
             try {
-                a = new Scanner(System.in).nextInt();
+                a = scanner.nextInt();
             } catch (InputMismatchException ex) {
                 System.out.println("Такой команды не существует!");
                 continue;
@@ -25,14 +26,16 @@ public class App {
             switch (a) {
                 case (1): {
                     System.out.println("Введите контакт");
-                    String contact = new Scanner(System.in).nextLine();
+                    scanner.nextLine();
+                    String contact = scanner.nextLine();
                     book.addContact(contact);
                     System.out.println("Контакт записан");
                     break;
                 }
                 case (2) : {
                     System.out.println("Введите имя");
-                    String contact = new Scanner(System.in).nextLine();
+                    scanner.nextLine();
+                    String contact = scanner.nextLine();
                     book.delete(contact);
                     break;
                 }

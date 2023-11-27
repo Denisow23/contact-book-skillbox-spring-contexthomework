@@ -17,7 +17,6 @@ public class ContactBook {
     private static final String CONTACT_TEMPLATE = "^.+;.+;.+";
     private static final String  EMAIL_TEMPLATE = "\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*\\.\\w{2,4}";
 
-    private final ObjectFactory<Contact> contactObjectFactory;
     private Map<String, Contact> contacts;
     @Value("${app.pathToSave}")
     private String pathToSave;
@@ -59,15 +58,7 @@ public class ContactBook {
             return;
         }
         contacts.put(contactInfo[FULL_NAME],
-                getContact(contactInfo[FULL_NAME], contactInfo[PHONE_NUMBER], contactInfo[EMAIL]));
-    }
-
-    private Contact getContact(String fullName, String phoneNumber, String email){
-        Contact contact = contactObjectFactory.getObject();
-        contact.setEmail(email);
-        contact.setFullName(fullName);
-        contact.setPhoneNumber(phoneNumber);
-        return contact;
+                new Contact(contactInfo[FULL_NAME], contactInfo[PHONE_NUMBER], contactInfo[EMAIL]));
     }
 
     public void delete(String name){
@@ -108,8 +99,7 @@ public class ContactBook {
         }
     }
 
-    public ContactBook(ObjectFactory<Contact> contactObjectFactory) {
-        this.contactObjectFactory = contactObjectFactory;
+    public ContactBook() {
         this.contacts = new TreeMap<>();
     }
 }

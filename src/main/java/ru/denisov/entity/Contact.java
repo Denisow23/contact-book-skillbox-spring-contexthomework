@@ -3,8 +3,6 @@ package ru.denisov.entity;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component
-@Scope("prototype")
 public class Contact {
     private String fullName;
     private String phoneNumber;
@@ -34,7 +32,10 @@ public class Contact {
         this.email = email;
     }
 
-    public Contact() {
+    public Contact(String fullName, String phoneNumber, String email) {
+        this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
     }
 
 }

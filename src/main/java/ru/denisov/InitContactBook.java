@@ -2,6 +2,8 @@ package ru.denisov;
 
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Component;
 import ru.denisov.entity.ContactBook;
 import javax.annotation.PostConstruct;
 import java.io.BufferedReader;
@@ -9,6 +11,8 @@ import java.io.FileReader;
 import java.io.IOException;
 
 
+@Component
+@Profile("init")
 public class InitContactBook {
     @Value("${app.pathToInit}")
     private String initPath;
