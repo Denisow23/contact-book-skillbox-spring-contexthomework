@@ -16,12 +16,14 @@
 + Работа с методами жизненного цикла.
 
 ## Профили
-В приложении предусмотрены два профиля Spring: ***init*** и ***non-init***.
-Изменение профиля производится в файле application.properties([здесь](https://github.com/Denisow23/contact-book-skillbox-spring-contexthomework/blob/master/src/main/resources/application.properties)) 
+В приложении предусмотрены два профиля Spring: ***init*** и ***default***.
+Изменение профиля производится в файле application.yml([здесь](https://github.com/Denisow23/contact-book-skillbox-spring-contexthomework/blob/master/src/main/resources/application.yml)) 
 
 Пример настройки профиля:
 ```
-spring.profiles.active=init
+spring:
+  profiles:
+    active : init
 ```
 По умолчанию установлен профил ***init***
 
@@ -69,8 +71,9 @@ spring.profiles.active=init
 ### save to file
 
 Команда сохранения списка контактов в файл. В случае успешного выполнения программа оповестит пользователя сообщением **"Контакты записаны в файл!"**, в случае неудачи **"Ошибка записи в файл!"**.
-Путь к файлу сохранения можно менять в файле [application.properties](https://github.com/Denisow23/contact-book-skillbox-spring-contexthomework/blob/master/src/main/resources/application.properties)
+Путь к файлу сохранения можно менять в файле [application.yml](https://github.com/Denisow23/contact-book-skillbox-spring-contexthomework/blob/master/src/main/resources/application.yml)
 ```
-app.pathToSave=src/main/resources/savedContacts.txt
+app:
+  pathToSave : "src/main/resources/savedContacts.txt"
 ```
 
